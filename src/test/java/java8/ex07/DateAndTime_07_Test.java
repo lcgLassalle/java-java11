@@ -2,10 +2,10 @@ package java8.ex07;
 
 import org.junit.Test;
 
-import java.time.DayOfWeek;
-import java.time.LocalDate;
-import java.time.Month;
+import java.time.*;
+import java.util.Calendar;
 import java.util.Date;
+
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -19,13 +19,14 @@ public class DateAndTime_07_Test {
     public void test_date_to_localdate() throws Exception {
 
         // TODO Créer une date Java 1 (12/02/2017)
-        Date date = null;
-
+        Calendar date = Calendar.getInstance();
+        date.set(2017, 01,12);
         // TODO transformer la date en Instant
-
+        Instant instant1 = date.toInstant();
         // TODO transformer la date en LocalDate
 
-        LocalDate result = null;
+        ZonedDateTime tempDateTime = ZonedDateTime.ofInstant(instant1, ZoneId.systemDefault());
+        LocalDate result = tempDateTime.toLocalDate();
 
         // TODO valoriser les différentes variables afin de rendre le test passant
 
